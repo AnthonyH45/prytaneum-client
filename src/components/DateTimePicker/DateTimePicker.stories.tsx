@@ -8,5 +8,5 @@ export default {
 };
 
 export function DateTimePicker() {
-    return <Component id='test' value='test' onChange={() => {}} />;
+    return <Component id='test' value={new Date()} onChange={() => {}} />;
 }

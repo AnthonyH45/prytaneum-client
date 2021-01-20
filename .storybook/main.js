@@ -11,13 +11,17 @@ module.exports = {
                 docs: false,
             },
         },
+        'storybook-addon-performance/register',
     ],
     typescript: {
         reactDocgen: 'none',
     },
     webpackFinal: (config) => {
         config.resolve.alias = {
-            hooks: path.resolve(__dirname, '../src/hooks/__mocks__/'),
+            'hooks/useSocketio': path.resolve(
+                __dirname,
+                '../src/hooks/__mocks__/useSocketio'
+            ),
         };
         return config;
     },

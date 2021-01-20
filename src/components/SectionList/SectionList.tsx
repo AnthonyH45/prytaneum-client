@@ -13,10 +13,13 @@ import {
 } from '@material-ui/core';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
+import history from 'utils/history';
+
 export interface Datum {
     image?: string;
     title: string;
     subtitle: string;
+    href: string;
 }
 
 export interface Section {
@@ -65,11 +68,15 @@ export default function SectionList({ sections }: Props) {
                         <Divider component='li' />
                         {sectionData.map(
                             (
-                                { image, title: listItemTitle, subtitle },
+                                { image, title: listItemTitle, subtitle, href },
                                 idx
                             ) => (
                                 <li key={idx}>
-                                    <ListItem divider button>
+                                    <ListItem
+                                        divider
+                                        button
+                                        onClick={() => history.push(href)}
+                                    >
                                         {image && (
                                             <ListItemAvatar>
                                                 <Avatar
